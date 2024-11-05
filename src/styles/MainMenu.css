@@ -1,0 +1,54 @@
+.category{
+    font-size: 1.1rem;
+    font-family: 'apercuRegular', sans-serif;
+}
+
+:where(.otherContent){
+    align-content: center;
+    cursor: pointer;
+    text-align: center;
+    block-size: 2.5rem;
+    transition: 2s;
+}
+
+.optionsMenu {
+    position: fixed;
+    top: 0;
+    writing-mode: vertical-rl;
+    right: 0;
+    inline-size: 100%;
+}
+
+.size{
+    width: 78vw;
+    transition: 1s;
+}
+
+.noSize{
+    width: 10vh;
+    transition: 0.5s;
+}
+
+.cLogo{
+    transform: scale(0.9);
+    transition: 0.5s;
+}
+
+.eLogo{
+    transition: 0.5s;
+}
+
+.otherContent:first-child{
+    background-color: #FFB400;
+    transform: translateY(-100%);
+}
+
+.otherContent:nth-child(2){
+    transform: translateY(-150%);
+    background-color: #F64444;
+}
+
+.otherContent:nth-child(3){
+    background-color: #5EA3EC;
+    transform: translateY(-200%);
+}

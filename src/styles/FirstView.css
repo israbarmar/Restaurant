@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'oggRegular';
+    src: url(fonts/ogg/Ogg-Light-BF646c18fbb73f7.otf);
+}
+
+.title{
+    font-family: 'oggRegular', sans-serif;
+    font-size: 4.6em;
+    text-align: justify;
+}
+
+.title-box{
+    margin-bottom: 4rem;
+}
+
+.title{
+    margin: 2.5em 0.5em 2em 0em;
+}
+
+#underline{
+    background: linear-gradient(25deg, transparent 30%, 
+                               rgb(255, 217, 0) 30%, 
+                               rgb(255, 217, 0) 30%, 
+                               transparent 41%) 
+                               repeat-x,
+                               linear-gradient(-25deg, transparent 30%, 
+                               rgb(255, 217, 0) 30%, 
+                               rgb(255, 217, 0) 30%, 
+                               transparent 41%) 
+                               repeat-x;
+    background-position: bottom;
+    background-size: 0.6em 9px, 0.6em 9px;
+    cursor: pointer;
+    animation: moveLine 12s linear infinite;
+}
+
+@keyframes moveLine{
+    100%{
+    background-position: 800px 100%, 800px 100%;
+    }
+}
+
+.first_image{
+    opacity: 0;
+    transition: 1s;
+}

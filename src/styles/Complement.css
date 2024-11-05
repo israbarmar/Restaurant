@@ -1,0 +1,29 @@
+.grid_complement{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.grid_complement div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.address_number{
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.address_number h3{
+    font-size: 4rem;
+}
+
+.map_img img{
+    width: 99%;
+    height: 99%;
+}
+
+
+

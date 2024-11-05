@@ -1,0 +1,33 @@
+.bFooter{
+    margin-bottom: 3rem;
+}
+
+.footer_box{
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+    cursor: pointer;
+    background-image: none;
+}
+
+.bFooter:first-child{
+    background: url('../assets/mail.png') no-repeat;
+    background-size: 15%;
+    background-position: top 40% right 50%;
+}
+
+.bFooter:nth-of-type(2){
+   background: url('../assets/facebook.png') no-repeat;
+   background-size: 10%;
+   background-position: top 40% right 50%;
+}
+
+.bFooter:nth-of-type(3){
+    background: url('../assets/instagram.png') no-repeat;
+    background-size: 10%;
+    background-position: top 40% right 50%;
+ }
+
+.pFText{
+    margin-top: 3rem;
+}

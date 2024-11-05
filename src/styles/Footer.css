@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.ad_footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center /*Centra los elementos sin modificar el tamaño del elemento con display: flex*/;
+    padding: 3em 0rem;
+    margin: 3rem 0rem;
+}
+
+.ad_footer h3{
+    font-size: 2.5rem;
+}
+
+.ad_footer .button_first{
+    margin: 3rem 0rem 0rem 0rem;
+}
+
+.contact_box{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.email_box{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding: 2rem 4rem;
+    gap: 2rem;
+    z-index: -1;
+}
+
+#email{
+    position: relative;
+}
+
+.arrow{
+    position: absolute;
+    width: 3rem;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background: url('../assets/arrow.png') no-repeat;
+    background-size: 70%;
+    top: 22%;
+}
+
+.email_box h3{
+    font-family: 'apercuRegular';
+    font-size: 1.4rem;
+}
+
+.email_box input{
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+    border-radius: none;
+    height: 90%;
+}
+
+.email_box input:focus{
+    outline: none;
+}
+
+input[type='email']{
+    width: 100%;
+}
+
+.email_box input::placeholder{
+    color: black;
+    font-family: 'apercuRegular';
+}
+
+.last_box{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+
+.gradient_y{
+    background: linear-gradient(110deg, transparent 40%, rgb(143, 143, 143) 50%, transparent 0) repeat-x,
+                linear-gradient(110deg, transparent 40%, rgb(143, 143, 143) 50%, transparent 0) repeat-x;
+    background-size: 5px 14px, 5px 14px;
+    background-position: 0 0, 0 100%;
+}
+
+.last_info{
+    display: flex;
+    padding: 2rem;
+}
+
+.last_info *{
+    margin-right: 5rem;
+}
+
+.site{
+    display: flex;
+    justify-content: end;
+    text-decoration-line: line-through;
+    align-items: center;
+}

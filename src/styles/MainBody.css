@@ -1,0 +1,30 @@
+
+.mainBody-box{
+    margin-bottom: 10rem;
+    height: 35rem;
+    justify-content: end;
+}
+
+.mainBody-box p{
+   height: 25%;
+}
+
+.mainBody-box:first-child{
+    background: url('../assets/img1.png') no-repeat;
+    background-size: 200%;
+    background-position-x: 40%;
+    background-position-y: -5%;
+}
+
+.mainBody-box:nth-of-type(2){
+    background: url('../assets/img2.jpg') no-repeat;
+    background-size: 100%;
+    background-position-x: 40%;
+    background-position-y: -55%;
+}
+
+.mainBody-box:nth-of-type(3){
+    background: url('../assets/img3.jpg') no-repeat;
+    background-size: 197%;
+    background-position-x: 10%;
+}

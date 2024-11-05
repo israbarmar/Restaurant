@@ -1,38 +1,91 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'oggRegular';
+  src: url(./styles/fonts/ogg/Ogg-Light-BF646c18fbb73f7.otf);
+
+  font-family: 'apercuRegular';
+  src: url(./styles/fonts/apercu/ApercuMonoProLight.ttf);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.second-container{
+ width: 86.5%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+#logo{
+  top: 0;
+  margin: 4rem;
+  position: fixed;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.div_main{
+  padding: 0rem 4rem;
+}
+
+p{
+  font-family: 'apercuRegular', 'sans-serif';
+  font-size: 0.9rem;
+  text-align: start;
+}
+
+.button_first{
+  font-family: 'apercuRegular', 'sans-serif';
+  border: 1px solid black;
+  background-color: white;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  transition: background-color 0.5s ease;
+  margin: 3rem 0rem;
+}
+
+.button_first:hover{
+  background-color: black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h3{
+  font-family: 'oggRegular';
+  font-size: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+a:visited, a:active, a:link{
+  color: black;
+  text-decoration: underline;
+}
+
+hr{
+  border: 1px solid rgb(32, 28, 28);
+  width: 100%;
+  margin: 2rem;
+}
+
+.effect_dotted{
+  background: linear-gradient(90deg, black 50%, transparent 50%) repeat-x,
+              linear-gradient(90deg, black 50%, transparent 50%) repeat-x,
+              linear-gradient(0deg, black 50%, transparent 50%) repeat-y,
+              linear-gradient(0deg, black 50%, transparent 50%) repeat-y;
+  background-size: 25px 1px, 25px 1px, 1px 25px, 1px 25px;
+  background-position: 0 0, 0 100%, 100% 0, 0 0;  
+}
+
+.effect_dotted:hover{
+  animation: moveLinear 10s infinite linear;
+}
+
+@keyframes moveLinear{
+  100%{
+      background-position: 500px 0, -500px 100%, 100% 500px, 0 -500px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.effect{
+  opacity: 1;
 }

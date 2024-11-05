@@ -1,0 +1,29 @@
+
+.mainStructure{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 4rem;
+    opacity: 0;
+    transition: 2s;
+}
+
+.mainStructure div{ /*Al contenido hay que darle 100% para que abarque todo y luego centrarlo,
+    de modo que todo queda ordenado.
+    */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainStructure div img, .mainStructure div p{
+    width: 100%;
+}
+
+.title-main{
+   font-family: 'oggRegular', 'sans-serif';
+   text-align: start;
+   font-size: 6rem;
+   width: 50%;
+   padding: 1rem 0rem;
+   margin-bottom: 5rem;
+}
