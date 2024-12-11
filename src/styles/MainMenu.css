@@ -7,48 +7,90 @@
     align-content: center;
     cursor: pointer;
     text-align: center;
-    block-size: 2.5rem;
-    transition: 2s;
+    width: 100%;
+    height: 100%;
 }
 
 .optionsMenu {
+    display: grid;
+    grid-template-columns: repeat(4, 4rem);
+    height: 100%;
     position: fixed;
-    top: 0;
-    writing-mode: vertical-rl;
     right: 0;
-    inline-size: 100%;
+    border: 5px solid black;
+    transition: 2s;
 }
 
-.size{
-    width: 78vw;
-    transition: 1s;
+.uno, .dos, .tres{
+    width: 100%;
+}
+
+.uno{
+    grid-template-columns: 4rem auto 4rem 4rem;
+}
+
+.dos{
+    grid-template-columns: 4rem 4rem auto 4rem;
+}
+
+.tres{
+    grid-template-columns: 4rem 4rem 4rem auto;
 }
 
 .noSize{
-    width: 10vh;
-    transition: 0.5s;
+   grid-template-columns: repeat(4, 5rem);
 }
+
 
 .cLogo{
     transform: scale(0.9);
     transition: 0.5s;
+    margin: 4rem 0 0 0rem;
 }
 
 .eLogo{
     transition: 0.5s;
-}
-
-.otherContent:first-child{
-    background-color: #FFB400;
-    transform: translateY(-100%);
+    margin: 4rem;
 }
 
 .otherContent:nth-child(2){
-    transform: translateY(-150%);
-    background-color: #F64444;
+    background-color: #FFB400;
+    /*transform: translateY(-100%);*/
 }
 
 .otherContent:nth-child(3){
+    /*transform: translateY(-150%);*/
+    background-color: #F64444;
+}
+
+.otherContent:nth-child(4){
     background-color: #5EA3EC;
-    transform: translateY(-200%);
+    /*transform: translateY(-200%);*/
+}
+
+.otherContent:first-child{
+    cursor:auto;
+}
+
+.remove{
+    display: none;
+}
+
+.show{
+    writing-mode: horizontal-tb;
+    width: 90%;
+    height: 100%;
+    overflow: scroll;
+}
+
+.show::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+
+
+@media screen and (max-width: 768px) {
+    .optionsMenu{
+        display: none;
+    }
 }

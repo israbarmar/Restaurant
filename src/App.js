@@ -17,10 +17,6 @@ function App() {
   return (
     <div className="App">
 
-    <div className='first-container'>
-      <OptionsMenu />
-    </div>
-
     <div className='second-container'>
       
     <FirstView functionEffect={addEffect}/>
@@ -66,13 +62,13 @@ function App() {
     />
 
     <Events
-     ad="New Balance x Paperboy Paris by Greenhouse @ Canal Street Market"
+      ad="New Balance x Paperboy Paris by Greenhouse @ Canal Street Market"
       date="02/07"
     />
 
     <Events
-    ad="Hack City 12/11"
-    date="12/11"
+      ad="Hack City 12/11"
+      date="12/11"
     />
 
 </MarkEvents>
@@ -81,6 +77,11 @@ function App() {
 
       <Footer />
     </div>
+
+    <div className='first-container'>
+      <OptionsMenu />
+    </div>
+
     </div>
   );
 }

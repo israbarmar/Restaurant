@@ -31,25 +31,19 @@ export default function Footer(){
         </div> 
 
     <div className="email_box effect_dotted">
-      <h3>Stay up to date with our newsletter</h3>
+      <div className="h3_contain appears"><h3>Stay up to date with our newsletter</h3></div>
+      <div className="aEmailText"><h4>Get updates in your inbox</h4></div>
       <div id="email">
-        <input type="email" placeholder="Email"/>
+        <input type="email" placeholder="Email" id='rEmail'/>
         <div className="arrow"></div>
       </div>
     </div>
 
 <div className="last_box">
-
-  <div className="last_info">
      <p>Copyright Canal Street Market 2024</p>
      <a href="#">Privacy Policy</a>
      <a href="#">Vendor Login</a>
-  </div>
-
-  <div className="site">
-     <a>Site by Zero</a>
-  </div>
-
+     <a>Site by <span className="site">Zero</span></a>
 </div>
 
       </div>

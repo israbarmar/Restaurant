@@ -7,14 +7,6 @@
     transition: 2s;
 }
 
-.mainStructure div{ /*Al contenido hay que darle 100% para que abarque todo y luego centrarlo,
-    de modo que todo queda ordenado.
-    */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .mainStructure div img, .mainStructure div p{
     width: 100%;
 }
@@ -23,7 +15,20 @@
    font-family: 'oggRegular', 'sans-serif';
    text-align: start;
    font-size: 6rem;
-   width: 50%;
+   width: 56%;
    padding: 1rem 0rem;
    margin-bottom: 5rem;
+}
+
+
+@media screen and (max-width: 768px){
+    .mainStructure{
+        grid-template-columns: 1fr;
+    }
+
+    .title-main{
+        font-size: 3.5rem;
+        width: 100%;
+    }
+
 }

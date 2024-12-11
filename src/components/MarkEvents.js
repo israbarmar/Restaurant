@@ -4,10 +4,11 @@ export function Events({date, ad}){
 
     return (
         <div>
-           <div className="box_events">
+           <div className={`box_events`}>
              <p className="p_date">{date}</p>
              <p className="ad">{ad}</p>
             </div>
+            <div className="box_gradient no_effect"></div>
         </div>
     )
     
@@ -30,13 +31,13 @@ export default function MarkEvents({children}){
             
            </div>
            
-           <div className="box_gradient"></div>
+           <div className="box_gradient no_effect"></div>
              
         <div className="events">
              {children} 
         </div>
             <div className="see_all-button">
-                <button className="button_first">see all</button>
+                <button className="button_first white">see all</button>
                 <div className="caja"></div>  
             </div>
         </div>

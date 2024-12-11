@@ -12,16 +12,18 @@
   box-sizing: border-box;
 }
 
-.second-container{
- width: 86.5%;
+
+.App{
+  display: grid;
+ grid-template-columns: 87.9% 10%;
 }
 
 #logo{
   top: 0;
-  margin: 4rem;
   position: fixed;
   cursor: pointer;
   z-index: 100;
+  left: 0;
 }
 
 .div_main{
@@ -37,7 +39,7 @@ p{
 .button_first{
   font-family: 'apercuRegular', 'sans-serif';
   border: 1px solid black;
-  background-color: white;
+  background-color: transparent;
   cursor: pointer;
   padding: 1rem 2rem;
   font-size: 1rem;
@@ -48,6 +50,10 @@ p{
 .button_first:hover{
   background-color: black;
   color: white;
+}
+
+.white{
+  background-color: white;
 }
 
 h3{
@@ -88,4 +94,28 @@ hr{
 
 .effect{
   opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+
+  .App{
+    grid-template-columns: auto;
+  }
+
+  .div_main{
+    padding: 0 2rem
+  }
+
+  .second-container{
+    width: 100%;
+  }
+
+  #logo{
+    margin: 2rem;
+  }
+
+  .button_first{
+    width: 100%;
+  }
+
 }

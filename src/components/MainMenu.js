@@ -2,8 +2,9 @@ import React from 'react';
 import '../styles/MainMenu.css';
 import { useState } from 'react';
 import logo from '../assets/logo.png'
+import Footer from './Footer';
 
-export function MainMenu({anColor, cl, name}){
+export function MainMenu({anColor, name}){
 
 function dropMenus(){
   setTimeout(()=>{
@@ -21,26 +22,39 @@ function efecto(){
     const menus = d.querySelectorAll('.otherContent');
     menus.forEach(menu=>{
       menu.addEventListener('click', ()=>{
-        menu.style.transition = '0.5s';
+        menu.style.transition = '2s';
       });
     })
   }
 
 window.addEventListener('load', dropMenus);
-window.addEventListener('load', efecto)
+window.addEventListener('load', efecto);
 
     return(
-        <div className={`otherContent ${cl}`} onClick={anColor}> 
+
+        <div className={`otherContent`} onClick={anColor}> 
            <h3 className='category'>
             {name}
             </h3>
+            
         </div>
     )
 }
 
 export default function OptionsMenu(){
   const [inColor, setInColor] = useState(0);
-  let clase = '';
+  let cl = '';
+
+  switch(inColor) {
+    case 1 : cl = 'uno';
+    break;
+    case 2 : cl = 'dos';
+    break;
+    case 3 : cl = 'tres';
+    break;
+    default : cl = '';
+  }
+
 
   return (
 <>
@@ -49,26 +63,25 @@ export default function OptionsMenu(){
     width={60} height={60} id='logo' 
     onClick={()=>setInColor(0)}/>    
     
-       <div className='optionsMenu'>
-        <div className='options'>
+       <div className={`optionsMenu ${cl}`}>
+        
+          <MainMenu/>
+
           <MainMenu 
             name="Chefs - Barmen" 
             anColor={()=>setInColor(1)}
-            cl={inColor===1 ? clase='size' : clase='noSize'}
           />
 
             <MainMenu 
             name="Drinks"  
             anColor={()=>setInColor(2)}
-            cl={inColor===2 ? clase='size' : clase='noSize'}
           />
 
             <MainMenu 
             name="Food"  
             anColor={()=>setInColor(3)}
-            cl={inColor===3 ? clase='size' : clase='noSize'}
           />
-          </div>
+
        </div>
        </>
   );

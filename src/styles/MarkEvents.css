@@ -63,6 +63,11 @@ h1{
     animation: moveBox 12s linear infinite;
 }
 
+.no_effect{
+    animation: none;
+    margin: 2rem;
+}
+
 @keyframes moveBox{
     100%{
         background-position: 400px 0, 400px 100%;
@@ -85,5 +90,32 @@ h1{
 @keyframes moveLineas{
     100%{
      background-position: -400px 0, -400px 100%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .events{
+        grid-template-columns: 1fr;
+        row-gap: 3rem;
+        padding: 0rem;
+    }
+
+    h1{
+        font-size: 4rem;
+    }
+
+    .events{
+        gap: 0rem;
+    }
+
+    #event_one{
+        margin-top: 10rem;
+    }
+
+}
+
+@media screen and (min-width: 768px){
+    .no_effect{
+        display: none;
     }
 }

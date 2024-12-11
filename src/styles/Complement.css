@@ -13,7 +13,7 @@
 
 .address_number{
     text-align: center;
-    padding: 4rem 0;
+    padding: 4rem 2rem;
 }
 
 .address_number h3{
@@ -25,5 +25,20 @@
     height: 99%;
 }
 
+
+@media screen and (max-width:768px){
+
+    .grid_complement{
+        grid-template-columns: auto;
+    }
+
+    .address_number h3{
+        font-size: 2rem;
+    }
+
+    .map_img img{
+        display: none;
+    }
+}
 
 
