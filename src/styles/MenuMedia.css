@@ -1,0 +1,123 @@
+
+.fixedMenu{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    overflow: auto;
+    display: grid;
+}
+
+.secondMG{
+    background-color: rgb(255, 255, 255);
+    padding: 2rem;
+    height: 31rem;
+}
+
+.secondMG p{
+    margin: 2rem 0;
+    font-size: 1rem;
+}
+
+#baChef{
+    margin: 0 0;
+}
+
+.secondMG a{
+    text-decoration: underline;
+}
+
+.sm-one{
+    background: url('../assets/facebook.png') no-repeat;
+    background-size: 2rem;
+    background-position: center;
+}
+
+.sm-two{
+    background: url('../assets/instagram.png') no-repeat;
+    background-size: 2rem;
+    background-position: center;
+}
+
+.socialMedia{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.socialMedia div{
+height: 3.6rem;
+border: 1px solid black;
+cursor: pointer;
+}
+
+.mediaGrid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    height: 85vh;
+    position: relative;
+}
+
+/*Reordenar todo con flex porque grid no me deja animar nada*/
+
+.mediaGrid div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 2s;
+}
+
+.mediaGrid div:first-child{
+    background-color: rgb(255, 255, 255);
+}
+
+.mediaGrid div:first-child h4{
+    transform: rotate(-40deg);
+}
+
+.mediaGrid div:nth-child(2){
+    background-color: #5EA3EC;
+}
+
+.mediaGrid div:nth-child(2) h4{
+    transform: rotate(40deg);
+}
+
+.mediaGrid div:nth-child(3){
+    background-color: #F64444;
+}
+
+.mediaGrid div:nth-child(3) h4{
+    transform: rotate(-140deg);
+}
+
+
+.mediaGrid div:nth-child(4){
+    background-color: #FFB400;
+}
+
+.mediaGrid div:nth-child(4) h4{
+    transform: rotate(140deg);
+}
+
+.borderColor{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: 2s;
+    z-index: 1;
+}
+
+.noBorderColor{
+    transition: 2s;
+}
+
+@media screen and (min-width: 768px) {
+    .mediaGrid{
+        display: none;
+    }
+}

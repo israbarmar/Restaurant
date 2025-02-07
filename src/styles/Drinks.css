@@ -1,0 +1,26 @@
+.drinkSide{
+    padding: 0rem 4rem;
+}
+
+.drinkDes{
+    display: grid;
+    justify-content: end;
+    margin-top: 8rem;
+    text-align: center;
+}
+
+.drinkDes p{
+    text-align: end;
+    max-width: 14.5rem;
+}
+
+.drink_title{
+    font-size: 12rem;
+    line-height: 12rem;
+    text-align: start;
+}
+
+.dLetter{
+    margin-top: 2rem;
+    font-size: 4rem;
+}

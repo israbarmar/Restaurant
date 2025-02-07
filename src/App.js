@@ -7,6 +7,7 @@ import { Events } from './components/MarkEvents';
 import FirstView from './components/FirstView';
 import Complement from './components/Complement';
 import addEffect from './components/functionEffect';
+import MenuMedia from './components/MenuMedia';
 
 import './App.css'; /*El archivo .css aplica efectos a elementos de manera global, pero solo los 
                       elementos html, no los selectores que se crean en cada componente.
@@ -18,7 +19,7 @@ function App() {
     <div className="App">
 
     <div className='second-container'>
-      
+
     <FirstView functionEffect={addEffect}/>
 
     <Main functionEffect={addEffect}>

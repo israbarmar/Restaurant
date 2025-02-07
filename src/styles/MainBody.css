@@ -3,6 +3,7 @@
     margin-bottom: 10rem;
     height: 41rem;
     padding: 0;
+    padding-right: 1.8rem;
 }
 
 .cuadrado{
@@ -47,5 +48,6 @@
     .mainBody-box{
         height: 100%;
         margin-bottom: 0;
+        padding-right: 0;
     }
 }

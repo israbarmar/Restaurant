@@ -1,88 +1,123 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/MainMenu.css';
-import { useState } from 'react';
-import logo from '../assets/logo.png'
-import Footer from './Footer';
+import logo from '../assets/logo.png';
+import hamburger from '../assets/hamburger.png';
+import close from '../assets/close.png';
+import MenuMedia from './MenuMedia';
+import Drinks from './categories/Drinks';
+import Food from './categories/Food';
+import foodImage from '../assets/img1.png';
+import retailImage from '../assets/img2.jpg';
+import barmenImage from '../assets/barmen.png';
+import drinksImage from '../assets/drinks.png';
+import fImage from '../assets/food.png';
 
-export function MainMenu({anColor, name}){
+export function MainMenu({ title, isActive, onActivate, activeMenu }) {
+  return (
 
-function dropMenus(){
-  setTimeout(()=>{
-    const d = document;
-    const menus = d.querySelectorAll('.otherContent');
-    menus.forEach(menu=>{
-      menu.style.transform = 'none';
-      menu.style.transition = '2s';
-    })
-  }, 1000)
+    <div
+      className={`otherContent ${isActive ? 'active' : 'original'}`}
+      onClick={onActivate}
+    >
+      <h3 className="category">{title}</h3>
+
+      <div className={`${isActive ? 'showFooter' : 'noFooter'}`}>
+
+        {activeMenu === 1 && 
+        <Food name={'The Food Hall'} 
+              image={foodImage} 
+              miniTitle={'Food Halls Hours: '}
+              date={'Mon - Sun: 11:00AM - 8:00PM'}
+              cLetter={'餐饮'}
+              imageAnimation={barmenImage}
+        />
+        }
+
+        {activeMenu === 2 && 
+        <Food name={'The Retail Market'} 
+              image={retailImage} 
+              miniTitle={'Retail Market Hours: '}
+              date={'Thurs - Sun: 11:00AM - 7:00PM'}
+              cLetter={'購物'}
+              imageAnimation={drinksImage}
+        />
+        }
+
+        {activeMenu === 3 && 
+        <Drinks name={'Canal St. Community'} 
+              miniTitle={'Our mixed-use space hosts ongoing events, podcasts & artists in residence'}
+              cLetter={'文化'}
+              imageAnimation={fImage}
+        />}
+
+    </div>
+    
+    </div> 
+  );
 }
 
-function efecto(){
-    const d = document;
-    const menus = d.querySelectorAll('.otherContent');
-    menus.forEach(menu=>{
-      menu.addEventListener('click', ()=>{
-        menu.style.transition = '2s';
-      });
-    })
-  }
-
-window.addEventListener('load', dropMenus);
-window.addEventListener('load', efecto);
-
-    return(
-
-        <div className={`otherContent`} onClick={anColor}> 
-           <h3 className='category'>
-            {name}
-            </h3>
-            
-        </div>
-    )
-}
-
-export default function OptionsMenu(){
-  const [inColor, setInColor] = useState(0);
-  let cl = '';
-
-  switch(inColor) {
-    case 1 : cl = 'uno';
-    break;
-    case 2 : cl = 'dos';
-    break;
-    case 3 : cl = 'tres';
-    break;
-    default : cl = '';
-  }
-
+export default function OptionsMenu() {
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [appear, setAppear] = useState(false);
 
   return (
-<>
-    <img src={logo} 
-    className={inColor !== 0 ? 'cLogo' : 'eLogo'} 
-    width={60} height={60} id='logo' 
-    onClick={()=>setInColor(0)}/>    
-    
-       <div className={`optionsMenu ${cl}`}>
+    <>
+      <img
+        src={logo}
+        className={activeIndex !== null ? 'cLogo' : 'eLogo'}
+        width={60}
+        height={60}
+        id="logo"
+        onClick={() => setActiveIndex(null)}
+      />
+
+      <img
+        src={close}
+        width={40}
+        height={40}
+        id='close'
+        onClick={()=>setAppear(!appear)}
+        className={appear ? 'goClose' : 'backClose'}
+      />
+      
+      <img
+        src={hamburger}
+        width={60}
+        height={60}
+        onClick={() => setAppear(!appear)}
+        id='hamburger'
+        className={appear ? 'goHamburger' : 'backHamburger' }
+      />
+
+      <div className={`optionsMenu ${activeIndex !== null ? 'widthFull' : ''}`}>
+      
+      <MainMenu  />
+
+        <MainMenu
+          title="Chefs - Barmen"
+          isActive={activeIndex === 1}
+          onActivate={() => setActiveIndex(1)}
+          activeMenu={activeIndex}
+        />
+
+        <MainMenu
+          title="Drinks"
+          isActive={activeIndex === 2}
+          onActivate={() => setActiveIndex(2)}
+          activeMenu={activeIndex}
+        />
+
+        <MainMenu
+          title="Food"
+          isActive={activeIndex === 3}
+          onActivate={() => setActiveIndex(3)}
+          activeMenu={activeIndex}
+        />
         
-          <MainMenu/>
+      </div>
 
-          <MainMenu 
-            name="Chefs - Barmen" 
-            anColor={()=>setInColor(1)}
-          />
+      <MenuMedia apa={appear ? 'apa' : 'dis'}/>
 
-            <MainMenu 
-            name="Drinks"  
-            anColor={()=>setInColor(2)}
-          />
-
-            <MainMenu 
-            name="Food"  
-            anColor={()=>setInColor(3)}
-          />
-
-       </div>
-       </>
+    </>
   );
 }

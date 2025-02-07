@@ -2,7 +2,7 @@
 .mainStructure{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 4rem;
+    column-gap: 1.5rem;
     opacity: 0;
     transition: 2s;
 }
@@ -14,10 +14,10 @@
 .title-main{
    font-family: 'oggRegular', 'sans-serif';
    text-align: start;
-   font-size: 6rem;
-   width: 56%;
+   font-size: 7rem;
    padding: 1rem 0rem;
    margin-bottom: 5rem;
+   max-width: 40rem;
 }
 
 

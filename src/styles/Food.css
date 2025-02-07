@@ -1,0 +1,81 @@
+.firstFood{
+    display: grid;
+    grid-template-columns: 1fr 26rem;
+    padding: 0rem 4rem;
+}
+
+.headMenu{
+    display: flex;
+    justify-content: end;
+    margin-right: 2rem;
+    margin-top: 8rem;
+}
+
+.headMenu p{
+    width: 18rem;
+    text-align: end;
+}
+
+.secondFood{
+    background-repeat: no-repeat;
+    background-position-y: 100px;
+    background-size: 24rem 30rem;
+    width: 110%;
+}
+
+.cLetter{
+    text-align: end;
+    margin-top: 3rem;
+    font-size: 4rem;
+}
+
+.title_menu{
+    margin-top: 8rem;
+    font-size: 12rem;
+    line-height: 12rem;
+    text-align: start;
+}
+
+.grid_middle_content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 4rem;
+}
+
+#middle_content h3{
+    font-size: 6rem;
+}
+
+#middle_content p{
+    text-align: center;
+}
+
+.imageAnimation{
+    background-size: 10rem;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.imageAnimation:first-child{
+    animation: upImage 10s infinite;
+}
+
+.imageAnimation:nth-child(3){
+    animation: downImage 10s infinite;
+}
+
+@keyframes upImage {
+    0% {background-position-y: center;}
+    25% {background-position-y: 40%;}
+    50% {background-position-y: center;}
+    75% {background-position-y: 70%;}
+    100% {background-position-y: center;}
+}
+
+@keyframes downImage {
+    0% {background-position-y: center;}
+    25% {background-position-y: 70%;}
+    50% {background-position-y: center;}
+    75% {background-position-y: 40%;}
+    100% {background-position-y: center;}
+}
