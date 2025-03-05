@@ -1,12 +1,10 @@
-
 .fixedMenu{
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
     overflow: auto;
-    display: grid;
 }
 
 .secondMG{
@@ -48,28 +46,52 @@
 }
 
 .socialMedia div{
-height: 3.6rem;
-border: 1px solid black;
-cursor: pointer;
+    height: 3.6rem;
+    border: 1px solid black;
+    cursor: pointer;
 }
+
+/************************************************++*/
 
 .mediaGrid{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    height: 85vh;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    background-color: white;
+    flex-wrap: wrap;
+    justify-content: end;
 }
 
-/*Reordenar todo con flex porque grid no me deja animar nada*/
-
 .mediaGrid div{
+    transition: 2s;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: 2s;
 }
+
+.initialState{
+    width: 50%;
+    height: 50%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.mediaGrid div.borderColor{
+  width: 100%;
+  height: 100%;
+   z-index: 10;
+   font-size: 2rem;
+}
+
+.mediaGrid div.noBorderColor{
+    font-size: 0;
+    width: 0%;
+    height: 0%;
+    opacity: 0;
+    visibility: hidden;
+}
+
 
 .mediaGrid div:first-child{
     background-color: rgb(255, 255, 255);
@@ -77,24 +99,23 @@ cursor: pointer;
 
 .mediaGrid div:first-child h4{
     transform: rotate(-40deg);
-}
+ }
 
 .mediaGrid div:nth-child(2){
     background-color: #5EA3EC;
 }
 
 .mediaGrid div:nth-child(2) h4{
-    transform: rotate(40deg);
-}
+    transform: rotate(-140deg);
+ }
 
 .mediaGrid div:nth-child(3){
     background-color: #F64444;
 }
 
 .mediaGrid div:nth-child(3) h4{
-    transform: rotate(-140deg);
-}
-
+    transform: rotate(40deg);
+ }
 
 .mediaGrid div:nth-child(4){
     background-color: #FFB400;
@@ -102,18 +123,14 @@ cursor: pointer;
 
 .mediaGrid div:nth-child(4) h4{
     transform: rotate(140deg);
-}
+ }
 
-.borderColor{
-    height: 100%;
-    width: 100%;
+.showFood{
     position: absolute;
-    transition: 2s;
-    z-index: 1;
-}
-
-.noBorderColor{
-    transition: 2s;
+    width: 100%;
+    z-index: 100;
+    background-color: #5EA3EC;
+    top: 0;
 }
 
 @media screen and (min-width: 768px) {

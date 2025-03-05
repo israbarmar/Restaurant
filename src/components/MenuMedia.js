@@ -1,24 +1,46 @@
 import '../styles/MenuMedia.css';
-import { useState } from 'react';
+import Drinks from './categories/Drinks';
+import { useState, useEffect } from 'react';
 
 export default function MenuMedia({apa}){
-    const [wDiv, setWDiv] = useState(0);
+    const [wDiv, setWDiv] = useState(null);
+    const [changeProp, setProp] = useState(apa);
+    const [appearComponente, setComponent] = useState('');
+    const d = document;
+
+     // Sincronizar el estado con los cambios del prop apa
+     useEffect(() => {
+        setProp(apa);
+    }, [apa]); // Se ejecuta cada vez que apa cambia
+
+    function windowDis() {
+
+        setTimeout(() => {
+            setProp('dis');
+        }, 2300);
+
+
+    }
 
     return (
        
-        <div className={`fixedMenu ${apa}`}>
+        <div className={`fixedMenu ${changeProp}`}>
 
         <div className='mediaGrid'>
-                <div onClick={()=>setWDiv(1)} className={wDiv === 1 ? 'borderColor' : 'noBorderColor'}>
+                <div onClick={()=>{setWDiv(1); windowDis()}} 
+                className={wDiv === null ? 'initialState' : wDiv === 1 ? 'borderColor' : 'noBorderColor'}>
                     <h4>Canal Street</h4>
                 </div>
-                <div onClick={()=>setWDiv(2)} className={wDiv === 2 ? 'borderColor' : 'noBorderColor'}>
+                <div onClick={()=>{setWDiv(2); windowDis()}} 
+                className={wDiv === null ? 'initialState' : wDiv === 2 ? 'borderColor' : 'noBorderColor'}>
                     <h4>Food</h4>
                 </div>
-                <div onClick={()=>setWDiv(3)} className={wDiv === 3 ? 'borderColor' : 'noBorderColor'}>
+                <div onClick={()=>{setWDiv(3); windowDis()}} 
+                className={wDiv === null ? 'initialState' : wDiv === 3 ? 'borderColor' : 'noBorderColor'}>
                     <h4>Drinks</h4>
                 </div>
-                <div onClick={()=>setWDiv(4)} className={wDiv === 4 ? 'borderColor' : 'noBorderColor'}>
+                <div onClick={()=>{setWDiv(4); windowDis()}} 
+                className={wDiv === null ? 'initialState' : wDiv === 4 ? 'borderColor' : 'noBorderColor'}>
                     <h4>Chefs-Barmen</h4>
                 </div>
         </div>
@@ -43,4 +65,5 @@ export default function MenuMedia({apa}){
 
         </div>
     )
+    
 }

@@ -137,6 +137,7 @@
     transition: 0.5s;
     opacity: 0;
     visibility: hidden;
+    z-index: -100;
 }
 
 .showFooter{

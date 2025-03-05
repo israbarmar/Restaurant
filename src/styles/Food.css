@@ -79,3 +79,21 @@
     75% {background-position-y: 40%;}
     100% {background-position-y: center;}
 }
+
+@media screen and (max-width: 768px) {
+    #middle_content h3{
+        font-size: 3rem;
+    }
+
+    .title_menu{
+        font-size: 3rem;
+    }
+
+    .firstFood, .grid_middle_content{
+        grid-template-columns: auto;
+    }
+
+    .imageAnimation{
+        background-image: 5rem;
+    }
+}
