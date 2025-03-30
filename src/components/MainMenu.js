@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/MainMenu.css';
 import logo from '../assets/logo.png';
 import hamburger from '../assets/hamburger.png';
@@ -13,6 +13,7 @@ import drinksImage from '../assets/drinks.png';
 import fImage from '../assets/food.png';
 
 export function MainMenu({ title, isActive, onActivate, activeMenu }) {
+
   return (
 
     <div
@@ -121,3 +122,4 @@ export default function OptionsMenu() {
     </>
   );
 }
+

@@ -1,17 +1,22 @@
 import '../styles/MenuMedia.css';
 import Drinks from './categories/Drinks';
 import { useState, useEffect } from 'react';
+import Food from './categories/Food';
+import foodImage from '../assets/img1.png';
+import barmenImage from '../assets/barmen.png';
+import retailImage from '../assets/img2.jpg';
+import drinksImage from '../assets/drinks.png';
+import fImage from '../assets/food.png';
+import dImage from '../assets/img3.jpg';
 
 export default function MenuMedia({apa}){
     const [wDiv, setWDiv] = useState(null);
     const [changeProp, setProp] = useState(apa);
-    const [appearComponente, setComponent] = useState('');
     const d = document;
 
-     // Sincronizar el estado con los cambios del prop apa
      useEffect(() => {
         setProp(apa);
-    }, [apa]); // Se ejecuta cada vez que apa cambia
+    }, [apa]); 
 
     function windowDis() {
 
@@ -19,11 +24,11 @@ export default function MenuMedia({apa}){
             setProp('dis');
         }, 2300);
 
-
     }
 
     return (
-       
+
+        <>
         <div className={`fixedMenu ${changeProp}`}>
 
         <div className='mediaGrid'>
@@ -64,6 +69,42 @@ export default function MenuMedia({apa}){
         </div>
 
         </div>
+
+    <div className='containerMenus'>
+        
+        <div className={wDiv === null ? 'noMenu' : wDiv === 2 ? 'newMenu' : 'noMenu'}>
+        <Food name={'The Food Hall'} 
+              image={foodImage} 
+              miniTitle={'Food Halls Hours: '}
+              date={'Mon - Sun: 11:00AM - 8:00PM'}
+              cLetter={'餐饮'}
+              imageAnimation={barmenImage}
+        />
+        </div>
+
+        <div className={wDiv === null ? 'noMenu' : wDiv === 3 ? 'newMenu' : 'noMenu'}>
+        <Food name={'The Retail Market'} 
+              image={retailImage} 
+              miniTitle={'Retail Market Hours: '}
+              date={'Thurs - Sun: 11:00AM - 7:00PM'}
+              cLetter={'購物'}
+              imageAnimation={drinksImage}
+        />
+        </div>
+
+        <div className={wDiv === null ? 'noMenu' : wDiv === 4 ? 'newMenu' : 'noMenu'}>
+        <Drinks name={'Canal St. Community'} 
+              miniTitle={'Our mixed-use space hosts ongoing events, podcasts & artists in residence'}
+              cLetter={'文化'}
+              imageAnimation={fImage}
+              imageDrink={dImage}
+        />
+        </div>
+
+    </div>
+
+        </>
+
     )
     
 }

@@ -133,8 +133,47 @@
     top: 0;
 }
 
+.containerMenus{
+    height: 100%;
+    height: 100%;
+}
+
+
+.noMenu{
+    visibility: visible;
+    opacity: 0;
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+}
+
+.newMenu{
+    transition-delay: 2.3s;
+    transition-duration: 1s;
+    opacity: 1;
+    visibility: visible;
+    position: fixed;
+    top: 0;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.containerMenus .newMenu:first-child{
+    background-color: #5EA3EC;
+}
+
+.containerMenus .newMenu:nth-child(2){
+    background-color: #F64444;
+}
+
+.containerMenus .newMenu:last-child{
+    background-color: #FFB400;
+}
+
 @media screen and (min-width: 768px) {
-    .mediaGrid{
+    .mediaGrid, .noFood, .nuevoFood, .noMenu, .newMenu{
         display: none;
     }
 }

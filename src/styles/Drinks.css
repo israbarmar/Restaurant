@@ -24,3 +24,27 @@
     margin-top: 2rem;
     font-size: 4rem;
 }
+
+@media screen and (max-width: 768px) {
+
+    .drinkSide{
+        padding: 0 2rem;
+    }
+
+    .drink_title{
+        margin-top: 4rem;
+        font-size: 4rem;
+        line-height: 100%;
+    }
+
+    .dLetter{
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .comDiv{
+        display: 1px solid red;
+    }
+}

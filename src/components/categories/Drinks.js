@@ -1,7 +1,7 @@
 import Footer from "../Footer";
 import '../../styles/Drinks.css';
 
-export default function Drinks({name, miniTitle, cLetter, imageAnimation}){
+export default function Drinks({name, miniTitle, cLetter, imageAnimation, imageDrink}){
     return (
  <>
     <div className='drinkSide'>
@@ -13,6 +13,10 @@ export default function Drinks({name, miniTitle, cLetter, imageAnimation}){
 
         <div>
             <h1 className='drink_title'>{name}</h1>
+        </div>
+
+        <div className='secondFood comDiv' style={{backgroundImage: `url(${imageDrink})`}}>
+           <p className='cLetter'>{cLetter}</p>
         </div>
         
     </div>

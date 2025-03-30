@@ -86,14 +86,35 @@
     }
 
     .title_menu{
-        font-size: 3rem;
+        font-size: 3.5rem;
+        margin-top: 1rem;
+        line-height: 100%;
     }
 
     .firstFood, .grid_middle_content{
         grid-template-columns: auto;
+        padding: 2rem;
+    }
+
+    .secondFood{
+        height: 31.5rem;
+        margin: 1.5rem 0 0 0;
+        padding: 0;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position-y: 0px;
+        background-size: cover;
+        position: relative;
     }
 
     .imageAnimation{
         background-image: 5rem;
+    }
+
+    .cLetter{
+        margin: 0;
+        position: absolute;
+        bottom: -40px;
+        right: 0px;
     }
 }
