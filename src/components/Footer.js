@@ -6,7 +6,7 @@ export default function Footer(){
       
       <div className="footer div_main">
 
-       <div className="ad_footer gradient_y">
+       <div className="ad_fter gradient_y">
           <h3>Interested in becoming a chef ?</h3>
           <button className="button_first">click here</button>
         </div>
