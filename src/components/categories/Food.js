@@ -5,6 +5,8 @@ import Footer from '../Footer';
 export default function Food({name, image, miniTitle, date, cLetter, imageAnimation }){
 
 const [food, setFood] = useState([]);
+const [description, setDescription] = useState([]);
+const [allFood, setAllFood] = useState([]);
 
 useEffect(()=>{
     let showData = true;
@@ -16,8 +18,12 @@ useEffect(()=>{
         const data = await connection.json();
 
         if(showData){
-            const meals = data.categories.map((element)=>element.strCategory).slice(0, 10);
+            const allData = data.categories.map((dat)=>dat).slice(0, 9)
+            const meals = data.categories.map((element)=>element.strCategory).slice(0, 9);
+            const mealsDes = data.categories.map((element)=>element.strCategoryDescription).slice(0, 9);
             setFood(meals);
+            setDescription(mealsDes);
+            setAllFood(allData);
         }
 
     } catch (error) {
@@ -53,11 +59,10 @@ useEffect(()=>{
         </div> 
         </div>
         
-        <ul>
-            {food.map((meal)=>{
-                    return <li key={meal}>{meal}</li>
-                })
-            }
+        <ul className='food_list'>
+           {allFood.map((data)=>{
+             return <li><p>{data.strCategoryDescription}</p><br></br><h4>{data.strCategory}</h4></li>
+           })}
         </ul>
 
         <div className='grid_middle_content'>

@@ -64,6 +64,26 @@
     animation: downImage 10s infinite;
 }
 
+.food_list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    list-style: none;
+    margin: 4rem;
+}
+
+.food_list p{
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita a 2 líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.food_list h4{
+    font-size: 2rem;
+    padding: 2rem;
+    font-weight: 100;
+}
+
 @keyframes upImage {
     0% {background-position-y: center;}
     25% {background-position-y: 40%;}
