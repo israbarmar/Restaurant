@@ -61,7 +61,11 @@ useEffect(()=>{
         
         <ul className='food_list'>
            {allFood.map((data)=>{
-             return <li><p>{data.strCategoryDescription}</p><br></br><h4>{data.strCategory}</h4></li>
+             return <li>
+                        <p>{data.strCategoryDescription}</p><br></br>
+                        <h4>{data.strCategory}</h4>
+                        <img src={data.strCategoryThumb} alt='meal category'/>
+                    </li>
            })}
         </ul>
 

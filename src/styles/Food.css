@@ -68,19 +68,36 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     list-style: none;
-    margin: 4rem;
+    margin: 0rem 4rem;
+}
+
+.food_list li{
+    cursor: pointer;
+    position: relative;
 }
 
 .food_list p{
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Limita a 2 líneas */
+    -webkit-line-clamp: 2; /* 2 lines in description */
     -webkit-box-orient: vertical;
     overflow: hidden;
+    margin-top: 6rem;
+}
+
+.food_list img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: 1s;
+    opacity: 0;
+}
+
+.food_list img:hover{
+    opacity: 1;
 }
 
 .food_list h4{
     font-size: 2rem;
-    padding: 2rem;
     font-weight: 100;
 }
 
