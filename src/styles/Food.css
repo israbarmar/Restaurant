@@ -42,6 +42,21 @@
     margin: 4rem;
 }
 
+.effect_triangle{
+    background: linear-gradient(53deg, transparent 30%, black 30%, transparent 32%) repeat-x,
+                linear-gradient(-53deg, transparent 30%, black 30%, transparent 32%) repeat-x;
+    background-size: 80px 70px, 80px 70px;
+    width: 90%;
+    height: 5rem;
+    animation: moveTriangle infinite linear 30s;
+}
+
+@keyframes moveTriangle {
+    100% {
+        background-position-x: 100%;
+    }
+}
+
 #middle_content h3{
     font-size: 6rem;
 }
@@ -74,6 +89,7 @@
 .food_list li{
     cursor: pointer;
     position: relative;
+    margin-bottom: 4rem;
 }
 
 .food_list p{
@@ -99,6 +115,12 @@
 .food_list h4{
     font-size: 2rem;
     font-weight: 100;
+}
+
+.center_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @keyframes upImage {
@@ -153,5 +175,22 @@
         position: absolute;
         bottom: -40px;
         right: 0px;
+    }
+
+    .food_list{
+        grid-template-columns: auto;
+        margin: 2rem 0 2rem 2rem;
+    }
+
+    .food_list p{
+        margin-top: 2rem;
+    }
+
+    .food_list h4{
+        text-align: left;
+    }
+
+    .food_list img{
+        display: none;
     }
 }

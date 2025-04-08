@@ -4,8 +4,6 @@ import Footer from '../Footer';
 
 export default function Food({name, image, miniTitle, date, cLetter, imageAnimation }){
 
-const [food, setFood] = useState([]);
-const [description, setDescription] = useState([]);
 const [allFood, setAllFood] = useState([]);
 
 useEffect(()=>{
@@ -18,11 +16,7 @@ useEffect(()=>{
         const data = await connection.json();
 
         if(showData){
-            const allData = data.categories.map((dat)=>dat).slice(0, 9)
-            const meals = data.categories.map((element)=>element.strCategory).slice(0, 9);
-            const mealsDes = data.categories.map((element)=>element.strCategoryDescription).slice(0, 9);
-            setFood(meals);
-            setDescription(mealsDes);
+            const allData = data.categories.map((dat)=>dat).slice(0, 9);
             setAllFood(allData);
         }
 
@@ -69,6 +63,8 @@ useEffect(()=>{
            })}
         </ul>
 
+    <div className='center_div'>
+        <div className='effect_triangle'></div>
         <div className='grid_middle_content'>
             <div style={{backgroundImage: `url(${imageAnimation})`}} className='imageAnimation'></div>
             <div id='middle_content'>
@@ -77,6 +73,8 @@ useEffect(()=>{
             </div>
             <div style={{backgroundImage: `url(${imageAnimation})`}} className='imageAnimation'></div>
         </div>
+        <div className='effect_triangle'></div>
+    </div>
        <Footer />
        </>
     )
