@@ -48,7 +48,7 @@
     background-size: 80px 70px, 80px 70px;
     width: 90%;
     height: 5rem;
-    animation: moveTriangle infinite linear 30s;
+    animation: moveTriangle infinite 40s;
 }
 
 @keyframes moveTriangle {
@@ -155,6 +155,23 @@
         padding: 2rem;
     }
 
+    .grid_middle_content div{
+        display: flex;
+        flex-direction: column;
+        height: 10rem;
+        justify-content: center;
+    }
+
+    .grid_middle_content{
+        margin: 0rem;
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+
+    .effect_triangle{
+        background-size: 40px 35px, 40px 35px;
+    }
+
     .secondFood{
         height: 31.5rem;
         margin: 1.5rem 0 0 0;
@@ -167,7 +184,7 @@
     }
 
     .imageAnimation{
-        background-image: 5rem;
+        background-size: 5rem;
     }
 
     .cLetter{
