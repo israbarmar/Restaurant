@@ -95,6 +95,9 @@
 
 .mediaGrid div:first-child{
     background-color: rgb(255, 255, 255);
+    opacity: 0;
+    transition-duration: 0.5s;
+    transition-delay: 0.5s;
 }
 
 .mediaGrid div:first-child h4{
@@ -103,6 +106,9 @@
 
 .mediaGrid div:nth-child(2){
     background-color: #5EA3EC;
+    opacity: 0;
+    transition-duration: 0.5s;
+    transition-delay: 1.5s;
 }
 
 .mediaGrid div:nth-child(2) h4{
@@ -111,6 +117,9 @@
 
 .mediaGrid div:nth-child(3){
     background-color: #F64444;
+    opacity: 0;
+    transition-duration: 0.5s;
+    transition-delay: 1s;
 }
 
 .mediaGrid div:nth-child(3) h4{
@@ -119,11 +128,19 @@
 
 .mediaGrid div:nth-child(4){
     background-color: #FFB400;
+    opacity: 0;
+    transition-duration: 0.5s;
+    transition-delay: 2s;
 }
 
 .mediaGrid div:nth-child(4) h4{
     transform: rotate(140deg);
  }
+
+
+.mediaGrid div.appearDiv{
+    opacity: 1;
+}
 
 .showFood{
     position: absolute;
@@ -173,7 +190,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    .mediaGrid, .noFood, .nuevoFood, .noMenu, .newMenu{
+    .mediaGrid, .noFood, .nuevoFood, .noMenu, .newMenu, .fixedMenu{
         display: none;
     }
 }

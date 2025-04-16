@@ -33,19 +33,24 @@ export default function MenuMedia({apa}){
 
         <div className='mediaGrid'>
                 <div onClick={()=>{setWDiv(1); windowDis()}} 
-                className={wDiv === null ? 'initialState' : wDiv === 1 ? 'borderColor' : 'noBorderColor'}>
+                className={`${wDiv === null ? 'initialState' : wDiv === 1 ? 'borderColor' : 'noBorderColor'}
+                ${changeProp === 'apa' ? 'appearDiv' : ''}`}>
                     <h4>Canal Street</h4>
                 </div>
                 <div onClick={()=>{setWDiv(2); windowDis()}} 
-                className={wDiv === null ? 'initialState' : wDiv === 2 ? 'borderColor' : 'noBorderColor'}>
+                className={`${wDiv === null ? 'initialState' : wDiv === 2 ? 'borderColor' : 'noBorderColor'}
+                ${changeProp === 'apa' ? 'appearDiv' : ''}`} 
+                >
                     <h4>Food</h4>
                 </div>
                 <div onClick={()=>{setWDiv(3); windowDis()}} 
-                className={wDiv === null ? 'initialState' : wDiv === 3 ? 'borderColor' : 'noBorderColor'}>
+                className={`${wDiv === null ? 'initialState' : wDiv === 3 ? 'borderColor' : 'noBorderColor'}
+                ${changeProp === 'apa' ? 'appearDiv' : ''}`}>
                     <h4>Drinks</h4>
                 </div>
                 <div onClick={()=>{setWDiv(4); windowDis()}} 
-                className={wDiv === null ? 'initialState' : wDiv === 4 ? 'borderColor' : 'noBorderColor'}>
+                className={`${wDiv === null ? 'initialState' : wDiv === 4 ? 'borderColor' : 'noBorderColor'}
+                ${changeProp === 'apa' ? 'appearDiv' : ''}`}>
                     <h4>Chefs-Barmen</h4>
                 </div>
         </div>

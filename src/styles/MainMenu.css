@@ -23,7 +23,6 @@
     right: 0;
     transition: 0.4s;
     width: 16.6rem;
-    /*Revisar posicionar hijos a la derecha*/
     justify-content: flex-end;
 }
 
@@ -101,17 +100,22 @@
 
 .otherContent:nth-child(4){
     background-color: #FFB400;
-    /*transform: translateY(-100%);*/
+    transform: translateY(-100%);
 }
 
 .otherContent:nth-child(3){
-    /*transform: translateY(-150%);*/
+    transform: translateY(-150%);
     background-color: #F64444;
 }
 
 .otherContent:nth-child(2){
     background-color: #5EA3EC;
-    /*transform: translateY(-200%);*/
+    transform: translateY(-200%);
+}
+
+.otherContent.noTransform {
+    transition: 2s;
+    transform: translateY(0%);
 }
 
 .otherContent:first-child{

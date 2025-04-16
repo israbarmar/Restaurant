@@ -14,10 +14,22 @@ import fImage from '../assets/food.png';
 
 export function MainMenu({ title, isActive, onActivate, activeMenu }) {
 
+  const [deleteTransform, setTransform] = useState('');
+
+  useEffect(()=>{
+
+   const timeEffect = setTimeout(()=>{
+      setTransform('noTransform')
+    }, 2000)
+
+    return ()=>clearTimeout(timeEffect);
+
+  }, [])
+
   return (
 
     <div
-      className={`otherContent ${isActive ? 'active' : 'original'}`}
+      className={`otherContent ${isActive ? 'active' : 'original'} ${deleteTransform}`}
       onClick={onActivate}
     >
       <h3 className="category">{title}</h3>
