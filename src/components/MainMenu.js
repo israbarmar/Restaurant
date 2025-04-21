@@ -11,6 +11,7 @@ import retailImage from '../assets/img2.jpg';
 import barmenImage from '../assets/barmen.png';
 import drinksImage from '../assets/drinks.png';
 import fImage from '../assets/food.png';
+import { use } from 'react';
 
 export function MainMenu({ title, isActive, onActivate, activeMenu }) {
 
@@ -72,12 +73,23 @@ export function MainMenu({ title, isActive, onActivate, activeMenu }) {
 export default function OptionsMenu() {
   const [activeIndex, setActiveIndex] = useState(null);
   const [appear, setAppear] = useState(false);
+  const [startLogo, setLogo] = useState('')
+
+  useEffect(()=>{
+
+    const appearLogo = setTimeout(()=>{
+      setLogo('startLogo')
+    }, 1500);
+
+    return ()=>clearTimeout(appearLogo);
+
+  }, [])
 
   return (
     <>
       <img
         src={logo}
-        className={activeIndex !== null ? 'cLogo' : 'eLogo'}
+        className={`csLogo ${startLogo} ${activeIndex !== null ? 'cLogo' : 'eLogo'}`}
         width={60}
         height={60}
         id="logo"
