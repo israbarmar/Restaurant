@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import '../styles/MainMenu.css';
 import logo from '../assets/logo.png';
 import hamburger from '../assets/hamburger.png';
@@ -11,7 +11,7 @@ import retailImage from '../assets/img2.jpg';
 import barmenImage from '../assets/barmen.png';
 import drinksImage from '../assets/drinks.png';
 import fImage from '../assets/food.png';
-import { use } from 'react';
+import AppContext from './context/NewContext';
 
 export function MainMenu({ title, isActive, onActivate, activeMenu }) {
 
@@ -86,6 +86,7 @@ export default function OptionsMenu() {
   }, [])
 
   return (
+  <AppContext.Provider value={{ appear, setAppear }}> 
     <>
       <img
         src={logo}
@@ -144,6 +145,7 @@ export default function OptionsMenu() {
       <MenuMedia apa={appear ? 'apa' : 'dis'}/>
 
     </>
+    </AppContext.Provider>  
   );
 }
 

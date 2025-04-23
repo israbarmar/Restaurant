@@ -84,14 +84,20 @@
    font-size: 2rem;
 }
 
-.mediaGrid div.noBorderColor{
+.fixedMenu .mediaGrid div.noBorderColor{
     font-size: 0;
     width: 0%;
     height: 0%;
     opacity: 0;
     visibility: hidden;
+    transition-delay: 0s;
+    transition-duration: 2s;
 }
 
+.fixedMenu .mediaGrid div.borderColor{
+    transition-delay: 0s;
+    transition-duration: 2s;
+}
 
 .mediaGrid div:first-child{
     background-color: rgb(255, 255, 255);

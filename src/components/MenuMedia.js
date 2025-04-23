@@ -1,6 +1,6 @@
 import '../styles/MenuMedia.css';
 import Drinks from './categories/Drinks';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Food from './categories/Food';
 import foodImage from '../assets/img1.png';
 import barmenImage from '../assets/barmen.png';
@@ -8,15 +8,28 @@ import retailImage from '../assets/img2.jpg';
 import drinksImage from '../assets/drinks.png';
 import fImage from '../assets/food.png';
 import dImage from '../assets/img3.jpg';
+import AppContext from './context/NewContext';
 
 export default function MenuMedia({apa}){
     const [wDiv, setWDiv] = useState(null);
     const [changeProp, setProp] = useState(apa);
+    const { setAppear } = useContext(AppContext)
+
     const d = document;
 
      useEffect(() => {
         setProp(apa);
     }, [apa]); 
+
+    useEffect(() => {
+        const aDelay = setTimeout(()=>{
+        if (wDiv !== null) {
+            // Cuando wDiv deja de ser null, cerrar menú
+            setAppear(false);
+          }
+        }, 2000);
+    return ()=>clearTimeout(aDelay);
+      }, [wDiv]);
 
     function windowDis() {
 
