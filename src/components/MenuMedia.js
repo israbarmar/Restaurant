@@ -13,7 +13,8 @@ import AppContext from './context/NewContext';
 export default function MenuMedia({apa}){
     const [wDiv, setWDiv] = useState(null);
     const [changeProp, setProp] = useState(apa);
-    const { setAppear } = useContext(AppContext)
+    const [inState, setInState] = useState(null)
+    const { setAppear, appear } = useContext(AppContext);
 
     const d = document;
 
@@ -22,22 +23,35 @@ export default function MenuMedia({apa}){
     }, [apa]); 
 
     useEffect(() => {
+        if (wDiv === null || appear === true) {
+          setInState(false);
+        } else if (wDiv === 2 || wDiv === 3 || wDiv === 4) {
+          setInState(true);
+        } else {
+          setInState(false);
+        }
+      }, [wDiv, appear]);
+
+    useEffect(() => {
         const aDelay = setTimeout(()=>{
         if (wDiv !== null) {
             // Cuando wDiv deja de ser null, cerrar menú
-            setAppear(false);
+            setAppear(!appear);
           }
         }, 2000);
     return ()=>clearTimeout(aDelay);
       }, [wDiv]);
 
     function windowDis() {
-
         setTimeout(() => {
             setProp('dis');
         }, 2300);
-
     }
+
+    const getClass = (target) => {
+        if (wDiv === null || appear === true) return 'noMenu';
+        return wDiv === target ? 'newMenu' : 'noMenu';
+      };
 
     return (
 
@@ -90,34 +104,34 @@ export default function MenuMedia({apa}){
 
     <div className='containerMenus'>
         
-        <div className={wDiv === null ? 'noMenu' : wDiv === 2 ? 'newMenu' : 'noMenu'}>
-        <Food name={'The Food Hall'} 
-              image={foodImage} 
-              miniTitle={'Food Halls Hours: '}
-              date={'Mon - Sun: 11:00AM - 8:00PM'}
-              cLetter={'餐饮'}
-              imageAnimation={barmenImage}
-        />
-        </div>
+    <div className={getClass(2)}>
+  <Food name={'The Food Hall'} 
+        image={foodImage} 
+        miniTitle={'Food Halls Hours: '}
+        date={'Mon - Sun: 11:00AM - 8:00PM'}
+        cLetter={'餐饮'}
+        imageAnimation={barmenImage}
+  />
+</div>
 
-        <div className={wDiv === null ? 'noMenu' : wDiv === 3 ? 'newMenu' : 'noMenu'}>
-        <Food name={'The Retail Market'} 
-              image={retailImage} 
-              miniTitle={'Retail Market Hours: '}
-              date={'Thurs - Sun: 11:00AM - 7:00PM'}
-              cLetter={'購物'}
-              imageAnimation={drinksImage}
-        />
-        </div>
+<div className={getClass(3)}>
+  <Food name={'The Retail Market'} 
+        image={retailImage} 
+        miniTitle={'Retail Market Hours: '}
+        date={'Thurs - Sun: 11:00AM - 7:00PM'}
+        cLetter={'購物'}
+        imageAnimation={drinksImage}
+  />
+</div>
 
-        <div className={wDiv === null ? 'noMenu' : wDiv === 4 ? 'newMenu' : 'noMenu'}>
-        <Drinks name={'Canal St. Community'} 
-              miniTitle={'Our mixed-use space hosts ongoing events, podcasts & artists in residence'}
-              cLetter={'文化'}
-              imageAnimation={fImage}
-              imageDrink={dImage}
-        />
-        </div>
+<div className={getClass(4)}>
+  <Drinks name={'Canal St. Community'} 
+        miniTitle={'Our mixed-use space hosts ongoing events, podcasts & artists in residence'}
+        cLetter={'文化'}
+        imageAnimation={fImage}
+        imageDrink={dImage}
+  />
+</div>
 
     </div>
 

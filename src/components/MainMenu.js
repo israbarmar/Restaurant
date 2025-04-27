@@ -30,7 +30,7 @@ export function MainMenu({ title, isActive, onActivate, activeMenu }) {
   return (
 
     <div
-      className={`otherContent ${isActive ? 'active' : 'original'} ${deleteTransform}`}
+      className={`otherContent ${isActive ? 'active' : ''} ${deleteTransform}`}
       onClick={onActivate}
     >
       <h3 className="category">{title}</h3>
