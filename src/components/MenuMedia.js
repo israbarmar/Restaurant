@@ -14,7 +14,7 @@ export default function MenuMedia({apa}){
     const [wDiv, setWDiv] = useState(null);
     const [changeProp, setProp] = useState(apa);
     const [inState, setInState] = useState(null)
-    const { setAppear, appear } = useContext(AppContext);
+    const { setAppear, appear, activeIndex, setActiveIndex } = useContext(AppContext);
 
     const d = document;
 
@@ -22,7 +22,7 @@ export default function MenuMedia({apa}){
         setProp(apa);
     }, [apa]); 
 
-    useEffect(() => {
+    /*useEffect(() => {
         if (wDiv === null || appear === true) {
           setInState(false);
         } else if (wDiv === 2 || wDiv === 3 || wDiv === 4) {
@@ -31,6 +31,7 @@ export default function MenuMedia({apa}){
           setInState(false);
         }
       }, [wDiv, appear]);
+    */
 
     useEffect(() => {
         const aDelay = setTimeout(()=>{
@@ -48,9 +49,19 @@ export default function MenuMedia({apa}){
         }, 2300);
     }
 
+    useEffect(()=>{
+      const setW = setTimeout(()=>{
+        if (wDiv != null) {
+        setWDiv(null);
+        }
+      }, 5000);
+    
+      return ()=>clearTimeout(setW);
+    }, [wDiv])
+
     const getClass = (target) => {
-        if (wDiv === null || appear === true) return 'noMenu';
-        return wDiv === target ? 'newMenu' : 'noMenu';
+        if (appear === true || activeIndex === null) return 'noMenu';
+        return inState === target ? 'newMenu' : 'noMenu';
       };
 
     return (
@@ -59,23 +70,23 @@ export default function MenuMedia({apa}){
         <div className={`fixedMenu ${changeProp}`}>
 
         <div className='mediaGrid'>
-                <div onClick={()=>{setWDiv(1); windowDis()}} 
+                <div onClick={()=>{setWDiv(1); windowDis(); setInState(1)}} 
                 className={`${wDiv === null ? 'initialState' : wDiv === 1 ? 'borderColor' : 'noBorderColor'}
                 ${changeProp === 'apa' ? 'appearDiv' : ''}`}>
                     <h4>Canal Street</h4>
                 </div>
-                <div onClick={()=>{setWDiv(2); windowDis()}} 
+                <div onClick={()=>{setWDiv(2); windowDis(); setInState(2)}} 
                 className={`${wDiv === null ? 'initialState' : wDiv === 2 ? 'borderColor' : 'noBorderColor'}
                 ${changeProp === 'apa' ? 'appearDiv' : ''}`} 
                 >
                     <h4>Food</h4>
                 </div>
-                <div onClick={()=>{setWDiv(3); windowDis()}} 
+                <div onClick={()=>{setWDiv(3); windowDis(); setInState(3)}} 
                 className={`${wDiv === null ? 'initialState' : wDiv === 3 ? 'borderColor' : 'noBorderColor'}
                 ${changeProp === 'apa' ? 'appearDiv' : ''}`}>
                     <h4>Drinks</h4>
                 </div>
-                <div onClick={()=>{setWDiv(4); windowDis()}} 
+                <div onClick={()=>{setWDiv(4); windowDis(); setInState(4)}} 
                 className={`${wDiv === null ? 'initialState' : wDiv === 4 ? 'borderColor' : 'noBorderColor'}
                 ${changeProp === 'apa' ? 'appearDiv' : ''}`}>
                     <h4>Chefs-Barmen</h4>
@@ -104,27 +115,29 @@ export default function MenuMedia({apa}){
 
     <div className='containerMenus'>
         
-    <div className={getClass(2)}>
+    <div className={getClass(2)} onClick={()=>setActiveIndex(1)}>
   <Food name={'The Food Hall'} 
         image={foodImage} 
         miniTitle={'Food Halls Hours: '}
         date={'Mon - Sun: 11:00AM - 8:00PM'}
         cLetter={'餐饮'}
         imageAnimation={barmenImage}
+        onClick={()=>setActiveIndex(1)}
   />
 </div>
 
-<div className={getClass(3)}>
+<div className={getClass(3)} onClick={()=>setActiveIndex(2)}>
   <Food name={'The Retail Market'} 
         image={retailImage} 
         miniTitle={'Retail Market Hours: '}
         date={'Thurs - Sun: 11:00AM - 7:00PM'}
         cLetter={'購物'}
         imageAnimation={drinksImage}
+        onClick={()=>setActiveIndex(2)}
   />
 </div>
 
-<div className={getClass(4)}>
+<div className={getClass(4)} onClick={()=>setActiveIndex(3)}>
   <Drinks name={'Canal St. Community'} 
         miniTitle={'Our mixed-use space hosts ongoing events, podcasts & artists in residence'}
         cLetter={'文化'}

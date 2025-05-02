@@ -86,7 +86,7 @@ export default function OptionsMenu() {
   }, [])
 
   return (
-  <AppContext.Provider value={{ appear, setAppear }}> 
+  <AppContext.Provider value={{ appear, setAppear, activeIndex, setActiveIndex }}> 
     <>
       <img
         src={logo}
@@ -95,6 +95,7 @@ export default function OptionsMenu() {
         height={60}
         id="logo"
         onClick={() => setActiveIndex(null)}
+        alt='page logo'
       />
 
       <img
@@ -104,6 +105,7 @@ export default function OptionsMenu() {
         id='close'
         onClick={()=>setAppear(!appear)}
         className={appear ? 'goClose' : 'backClose'}
+        alt='close options'
       />
       
       <img
@@ -112,7 +114,8 @@ export default function OptionsMenu() {
         height={60}
         onClick={() => setAppear(!appear)}
         id='hamburger'
-        className={appear ? 'goHamburger' : 'backHamburger' }
+        className={appear ? 'goHamburger' : 'backHamburger'}
+        alt='menu options'
       />
 
       <div className={`optionsMenu ${activeIndex !== null ? 'widthFull' : ''}`}>
