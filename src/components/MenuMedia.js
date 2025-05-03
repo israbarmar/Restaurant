@@ -16,8 +16,6 @@ export default function MenuMedia({apa}){
     const [inState, setInState] = useState(null)
     const { setAppear, appear, activeIndex, setActiveIndex } = useContext(AppContext);
 
-    const d = document;
-
      useEffect(() => {
         setProp(apa);
     }, [apa]); 
@@ -75,18 +73,18 @@ export default function MenuMedia({apa}){
                 ${changeProp === 'apa' ? 'appearDiv' : ''}`}>
                     <h4>Canal Street</h4>
                 </div>
-                <div onClick={()=>{setWDiv(2); windowDis(); setInState(2)}} 
+                <div onClick={()=>{setWDiv(2); windowDis(); setInState(2); setActiveIndex(1)}} 
                 className={`${wDiv === null ? 'initialState' : wDiv === 2 ? 'borderColor' : 'noBorderColor'}
                 ${changeProp === 'apa' ? 'appearDiv' : ''}`} 
                 >
                     <h4>Food</h4>
                 </div>
-                <div onClick={()=>{setWDiv(3); windowDis(); setInState(3)}} 
+                <div onClick={()=>{setWDiv(3); windowDis(); setInState(3); setActiveIndex(2)}} 
                 className={`${wDiv === null ? 'initialState' : wDiv === 3 ? 'borderColor' : 'noBorderColor'}
                 ${changeProp === 'apa' ? 'appearDiv' : ''}`}>
                     <h4>Drinks</h4>
                 </div>
-                <div onClick={()=>{setWDiv(4); windowDis(); setInState(4)}} 
+                <div onClick={()=>{setWDiv(4); windowDis(); setInState(4); setActiveIndex(3)}} 
                 className={`${wDiv === null ? 'initialState' : wDiv === 4 ? 'borderColor' : 'noBorderColor'}
                 ${changeProp === 'apa' ? 'appearDiv' : ''}`}>
                     <h4>Chefs-Barmen</h4>
@@ -115,7 +113,7 @@ export default function MenuMedia({apa}){
 
     <div className='containerMenus'>
         
-    <div className={getClass(2)} onClick={()=>setActiveIndex(1)}>
+    <div className={getClass(2)}>
   <Food name={'The Food Hall'} 
         image={foodImage} 
         miniTitle={'Food Halls Hours: '}
@@ -126,7 +124,7 @@ export default function MenuMedia({apa}){
   />
 </div>
 
-<div className={getClass(3)} onClick={()=>setActiveIndex(2)}>
+<div className={getClass(3)}>
   <Food name={'The Retail Market'} 
         image={retailImage} 
         miniTitle={'Retail Market Hours: '}
@@ -137,7 +135,7 @@ export default function MenuMedia({apa}){
   />
 </div>
 
-<div className={getClass(4)} onClick={()=>setActiveIndex(3)}>
+<div className={getClass(4)}>
   <Drinks name={'Canal St. Community'} 
         miniTitle={'Our mixed-use space hosts ongoing events, podcasts & artists in residence'}
         cLetter={'文化'}
