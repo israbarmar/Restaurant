@@ -21,14 +21,17 @@ export default function Drinks({name, miniTitle, cLetter, imageAnimation, imageD
         
     </div>
 
+<div className='center_div'>
+  <div className='effect_triangle noMargin'></div>
     <div className='grid_middle_content'>
         <div style={{backgroundImage: `url(${imageAnimation})`}} className='imageAnimation'></div>
         <div id='middle_content'>
-            <h3>The Best of NYC</h3>
+            <h3>Market Radio</h3>
             <p>Podcasted from the market</p>
         </div>
         <div style={{backgroundImage: `url(${imageAnimation})`}} className='imageAnimation'></div>
     </div>
+</div>
 
        <Footer />
 </>

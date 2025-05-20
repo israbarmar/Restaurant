@@ -13,7 +13,8 @@ import AppContext from './context/NewContext';
 export default function MenuMedia({apa}){
     const [wDiv, setWDiv] = useState(null);
     const [changeProp, setProp] = useState(apa);
-    const [inState, setInState] = useState(null)
+    const [inState, setInState] = useState(null);
+    const [allFood, setAllFood] = useState([]);
     const { setAppear, appear, activeIndex, setActiveIndex } = useContext(AppContext);
 
      useEffect(() => {
@@ -60,7 +61,34 @@ export default function MenuMedia({apa}){
     const getClass = (target) => {
         if (appear === true || activeIndex === null) return 'noMenu';
         return inState === target ? 'newMenu' : 'noMenu';
-      };
+    }; /**Al eliminar esto los datos se muestran, pero necesito desaparecerlo para que
+            no se vea sin dar click en los divs que lo contienen */
+
+useEffect(() => {
+  let showData = true;
+
+  async function mealsC() {
+    try {
+      const url = 'https://www.themealdb.com/api/json/v1/1/categories.php';
+      const connection = await fetch(url);
+      const data = await connection.json();
+
+      if (showData) {
+        const allData = data.categories.slice(0, 9);
+        console.log('Datos del API cargados:', allData); // <-- Agrega esto
+        setAllFood(allData);
+      }
+    } catch (error) {
+      console.error('Los datos no se pueden mostrar', error);
+    }
+  }
+
+  mealsC();
+
+  return () => {
+    showData = false;
+  };
+}, []);
 
     return (
 
@@ -121,6 +149,7 @@ export default function MenuMedia({apa}){
         cLetter={'餐饮'}
         imageAnimation={barmenImage}
         onClick={()=>setActiveIndex(1)}
+        dataMeals={allFood}
   />
 </div>
 
@@ -132,6 +161,7 @@ export default function MenuMedia({apa}){
         cLetter={'購物'}
         imageAnimation={drinksImage}
         onClick={()=>setActiveIndex(2)}
+        dataMeals={allFood}
   />
 </div>
 

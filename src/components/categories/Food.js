@@ -1,35 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import '../../styles/Food.css';
 import Footer from '../Footer';
 
-export default function Food({name, image, miniTitle, date, cLetter, imageAnimation }){
-
-const [allFood, setAllFood] = useState([]);
-
-useEffect(()=>{
-    let showData = true;
-
-    async function mealsC(){
-    try{
-        const url = 'https://www.themealdb.com/api/json/v1/1/categories.php';
-        const connection = await fetch(url);
-        const data = await connection.json();
-
-        if(showData){
-            const allData = data.categories.map((dat)=>dat).slice(0, 9);
-            setAllFood(allData);
-        }
-
-    } catch (error) {
-        console.error('Los datos no se pueden mostrar')
-    }
- }
- mealsC();
-
- return ()=>{
-    showData = false;
- }
-}, [])
+export default function Food({name, image, miniTitle, date, cLetter, imageAnimation, dataMeals = []}){
 
     return(
         <>
@@ -52,16 +25,17 @@ useEffect(()=>{
             
         </div> 
         </div>
-        
+       
         <ul className='food_list'>
-           {allFood.map((data)=>{
-             return <li>
-                        <p>{data.strCategoryDescription}</p><br></br>
-                        <h4>{data.strCategory}</h4>
-                        <img src={data.strCategoryThumb} alt='meal category'/>
-                    </li>
-           })}
-        </ul>
+  {dataMeals.map((data) => (
+      <li key={data.idCategory}>
+        <p>{data.strCategoryDescription}</p><br />
+        <h4>{data.strCategory}</h4>
+        <img src={data.strCategoryThumb} alt='meal category' />
+      </li>
+    ))
+ }
+</ul>
 
     <div className='center_div'>
         <div className='effect_triangle'></div>

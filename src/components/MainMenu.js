@@ -16,6 +16,7 @@ import AppContext from './context/NewContext';
 export function MainMenu({ title, isActive, onActivate, activeMenu }) {
 
   const [deleteTransform, setTransform] = useState('');
+  const [allFoodTotal, setAllFoodTotal] = useState([]);
 
   useEffect(()=>{
 
@@ -25,7 +26,33 @@ export function MainMenu({ title, isActive, onActivate, activeMenu }) {
 
     return ()=>clearTimeout(timeEffect);
 
-  }, [])
+  }, []);
+
+  useEffect(() => {
+  let showData = true;
+
+  async function mealsC() {
+    try {
+      const url = 'https://www.themealdb.com/api/json/v1/1/categories.php';
+      const connection = await fetch(url);
+      const data = await connection.json();
+
+      if (showData) {
+        const allDataTotal = data.categories.slice(0, 9);
+        console.log('Datos del API cargados:', allDataTotal); // <-- Agrega esto
+        setAllFoodTotal(allDataTotal);
+      }
+    } catch (error) {
+      console.error('Los datos no se pueden mostrar', error);
+    }
+  }
+
+  mealsC();
+
+  return () => {
+    showData = false;
+  };
+}, []);
 
   return (
 
@@ -44,6 +71,7 @@ export function MainMenu({ title, isActive, onActivate, activeMenu }) {
               date={'Mon - Sun: 11:00AM - 8:00PM'}
               cLetter={'餐饮'}
               imageAnimation={barmenImage}
+              dataMeals={allFoodTotal}
         />
         }
 
